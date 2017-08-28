@@ -1,0 +1,30 @@
+
+var gulp = require('gulp'), //本地安装gulp所用到的地方
+    rev = require('gulp-rev');	//给文件加入版本号
+    revCollector = require('gulp-rev-collector');  //替换html中的文件名
+	runSequence = require('run-sequence'); //执行顺序，避免
+	gulpSequence  = require('gulp-sequence'); // 顺序执行
+
+gulp.task('ver',function(){
+	return gulp.src(['src1/css/*.css'])
+		.pipe(rev())  //文件加入版本号
+		.pipe(gulp.dest('dist/css'))
+		.pipe(rev.manifest())  //对应的版本号和原始文件用json表示出来
+		.pipe(gulp.dest('json'));
+});
+
+gulp.task('dev',function(){
+	return gulp.src(['json/rev-manifest.json','src1/index.html'])
+		.pipe(revCollector({
+			 replaceReved: true
+		}))
+		.pipe(gulp.dest('dist'));
+});
+
+
+gulp.task('default',function(){
+	runSequence(
+		'ver',
+		'dev'
+	);
+});

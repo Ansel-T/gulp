@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>项目实战</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="assets/css/index.css"/>
+     <script src="assets/lib/jquery-3.1.0.min.js"></script> 
+     <script src="assets/js/index.js"></script>
+</head>
+<body>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta content="portrait" name="screen-orientation"/>
+<!-- uc强制竖屏 -->
+<meta content="portrait" name="x5-orientation"/>
+<!-- QQ强制竖屏 --><!--清除浏览器缓存-->
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"/>
+<meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"/>
+<!--iPhone 手机上设置手机号码不被显示为拨号链接）-->
+<meta content="telephone=no, address=no" name="format-detection"/>
+<!--IOS私有属性，可以添加到主屏幕-->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<!--屏幕顶部条的颜色-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<script>
+    /*设备检测*/
+    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        alert('检测到当前不是移动设备');
+    }
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<div class="container">
+    <!-- 轮播图-->
+    <div class="ui_banner_box" id="focusPic">
+        <ul class="focusList " id="focusList">
+            <li class="out in"><img class="banner_pic " src="assets/images/banner_01.png" alt=""/></li>
+            <li class="out"><img class="banner_pic " src="assets/images/banner_01.png" alt=""/></li>
+            <li class="out"><img class="banner_pic " src="assets/images/banner_01.png" alt=""/></li>
+        </ul>
+        <ol class="focusSign clearfix" id="focusSign">
+            <li class="current"></li>
+            <li></li>
+            <li style="margin-right: 0px"></li>
+        </ol>
+    </div>
+    <!--//轮播图结束-->
+    <!-- main-->
+    <div class="main_course">
+        <div class="main_ul_course">
+            <div class="course_list_item">
+                <a href="#">
+                    <h3>Java面向对象系列课程</h3>
+                    <p class="main_list_txt">Linux、面向对象、ubuntu、fedora、jdk、maven、数组</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+            <div class="course_list_item">
+                <a href="#">
+                    <h3>Java面向对象系列课程</h3>
+                    <p class="main_list_txt">Linux、面向对象、ubuntu、fedora、jdk、maven、数组</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+            <div class="course_list_item">
+                <a href="#">
+                    <h3>Java面向对象系列课程</h3>
+                    <p class="main_list_txt">Linux、面向对象、ubuntu、fedora、jdk、maven、数组</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+            <div class="course_list_item">
+                <a href="#">
+                    <h3>Java面向对象系列课程</h3>
+                    <p class="main_list_txt">Linux、面向对象、ubuntu、fedora、jdk、maven、数组</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+            <div class="course_list_item list_item_purple">
+                <a href="#">
+                    <h3>使用Spring Boot构建应用</h3>
+                    <p class="main_list_txt">Spring、SpringBoot、服务端</p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- qq-->
+<div class="fix_cont">
+    <a href="#"><img src="assets/images/qq_service.png"/>
+    </a>
+</div>
+<script type="text/javascript">
+    var touchNum;
+    function stopDrop() {
+        $(document.body).on('touchstart', function(event) {
+            touchNum = event.originalEvent.touches;
+            if (touchNum.length > 1) {
+                event.preventDefault();
+                return false;
+            }
+        });
+        $(document.body).on('touchmove', function(event) {
+            if (touchNum.length > 1) {
+                event.preventDefault();
+                return false;
+            }
+        });
+    }
+    stopDrop();
+    //轮播图
+    var _index = 0;
+    var timer;
+    function play(_index){
+        timer=setTimeout(function(){
+            $(".focusList li").eq(_index).addClass("in").siblings().removeClass('in');
+            $(".focusSign li").eq(_index).addClass("current").siblings().removeClass('current');
+            _index++
+            if(_index==3){
+                _index=0
+            }
+            play(_index);
+        },3000)
+    }
+
+    play(_index)
+</script>
+</body>
+</html>
